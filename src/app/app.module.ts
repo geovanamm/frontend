@@ -10,11 +10,14 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HeaderComponent } from './components/template/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent
+    UserListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule
 
   ],
   providers: [],
