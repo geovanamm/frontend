@@ -11,18 +11,17 @@ import {tap} from 'rxjs/operators';
 })
 export class UserListComponent implements AfterViewInit, OnInit {
   response: Response;
-  displayedColumns = ['id', 'nome', 'apelido', 'nascimento', 'codigo',
-    'sexo', 'email', 'estado', 'cidade', 'acessosCurso', 'situacaoCurso', 'inicioCurso'];
+  displayedColumns = ['id', 'nome', 'apelido', 'nascimento',
+    'sexo', 'email', 'estado', 'cidade', 'situacaoCurso','acessosCurso',  'inicioCurso', 'codigo'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private userService: UserService) {
+    this.response = new Response();
   }
 
   ngOnInit(): void {
-
     this.userService.list().subscribe(response => {
       this.response = response;
-
     });
   }
 

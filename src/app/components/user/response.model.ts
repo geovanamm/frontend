@@ -1,8 +1,7 @@
 import {UserModel} from './user.model';
 
-export interface Response {
+export class Response {
   paginas: number;
   registros: number;
   resultados: UserModel[];
-
 }

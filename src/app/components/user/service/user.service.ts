@@ -5,7 +5,6 @@ import {Response} from '../response.model';
 import {catchError, map} from 'rxjs/operators';
 import { MatSnackBar } from "@angular/material/snack-bar";
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,12 +21,13 @@ export class UserService {
       map((obj) => obj),
       catchError((e) => this.errorHandler(e,"Não foi possivel carregar os dados da página "+ page))
     );
-
   }
+
   errorHandler(e: any, msg: string): Observable<any> {
     this.showMessage(msg, true);
     return EMPTY;
   }
+
   showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, "X", {
       duration: 3000,
