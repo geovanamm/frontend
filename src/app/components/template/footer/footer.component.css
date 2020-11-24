@@ -1,0 +1,16 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+
+}
+span {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+.footer .logo {
+  max-height: 100px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
