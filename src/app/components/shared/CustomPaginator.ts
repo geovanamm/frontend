@@ -8,7 +8,7 @@ export class CustomPaginator extends MatPaginatorIntl {
     this.nextPageLabel = ' Próxima página';
     this.previousPageLabel = ' Página anterior ';
     this.firstPageLabel = ' Primeira página ';
-    this.lastPageLabel = ' Ultima página ';
+    this.lastPageLabel = ' Última página ';
     this.itemsPerPageLabel = ' Itens por página: ';
 
   }
