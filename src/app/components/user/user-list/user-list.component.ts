@@ -7,12 +7,12 @@ import {tap} from 'rxjs/operators';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements AfterViewInit, OnInit {
   response: Response;
   displayedColumns = ['id', 'nome', 'apelido', 'nascimento',
-    'sexo', 'email', 'estado', 'cidade', 'situacaoCurso','acessosCurso',  'inicioCurso', 'codigo'];
+    'sexo', 'email', 'estado', 'cidade', 'situacaoCurso', 'acessosCurso', 'inicioCurso', 'codigo'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private userService: UserService) {
@@ -20,21 +20,19 @@ export class UserListComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.list().subscribe(response => {
-      this.response = response;
-    });
+    this.loadPage();
   }
 
   ngAfterViewInit() {
     this.paginator.page
       .pipe(
-        tap(() => this.loadPage())
+        tap(() => this.loadPage(this.paginator.pageIndex + 1))
       )
       .subscribe();
   }
 
-  loadPage() {
-    this.userService.list(this.paginator.pageIndex + 1).subscribe(response => {
+  loadPage(page: number = 1) {
+    this.userService.list(page).subscribe(response => {
       this.response = response;
     });
   }
