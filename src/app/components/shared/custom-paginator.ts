@@ -3,6 +3,8 @@ import {MatPaginatorIntl} from '@angular/material/paginator';
 
 @Injectable()
 export class CustomPaginator extends MatPaginatorIntl {
+
+  //Paginador Customizado para Portugues
   constructor() {
     super();
     this.nextPageLabel = ' Próxima página';
