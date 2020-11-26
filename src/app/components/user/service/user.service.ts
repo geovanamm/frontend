@@ -8,7 +8,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 @Injectable({
   providedIn: 'root'
 })
-
+//Classe que acessa o servidor para solicitação de dados
 export class UserService {
   baseUrl = 'http://dev.labtime.ufg.br/selecao_2020/user';
 
