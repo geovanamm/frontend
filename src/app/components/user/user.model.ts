@@ -1,3 +1,5 @@
+
+//Classe que modela os registros dos usuários
 export class UserModel {
   id: number;
   nome: string;
