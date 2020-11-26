@@ -3,17 +3,34 @@ import {UserService} from '../service/user.service';
 import {Response} from '../response.model';
 import {MatPaginator} from '@angular/material/paginator';
 import {tap} from 'rxjs/operators';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
+
+import {UserModel} from '../user.model';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class UserListComponent implements AfterViewInit, OnInit {
-  response: Response;
-  displayedColumns = ['id', 'nome', 'apelido', 'nascimento',
-    'sexo', 'email', 'estado', 'cidade', 'situacaoCurso', 'acessosCurso', 'inicioCurso', 'codigo'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
+  response: Response;
+
+  //Colunas para ser apresentada no cabeçalho da tabela
+  displayedColumns = ['id', 'nome',  'situacaoCurso','detalhes'];
+
+  expandedElement: UserModel | null;
+
 
   constructor(private userService: UserService) {
     this.response = new Response();
