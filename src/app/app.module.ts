@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {CustomPaginator} from './components/shared/custom-paginator';
 import {MatIconModule} from '@angular/material/icon';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatPaginatorModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: CustomPaginator}],
   bootstrap: [AppComponent]

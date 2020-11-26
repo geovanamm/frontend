@@ -27,7 +27,7 @@ export class UserListComponent implements AfterViewInit, OnInit {
   response: Response;
 
   //Colunas para ser apresentada no cabeçalho da tabela
-  displayedColumns = ['id', 'nome',  'situacaoCurso','detalhes'];
+  displayedColumns = ['id', 'nome',  'situacaoCurso'];
 
   expandedElement: UserModel | null;
 
@@ -35,11 +35,11 @@ export class UserListComponent implements AfterViewInit, OnInit {
   constructor(private userService: UserService) {
     this.response = new Response();
   }
-
+//solicita os dados da primeira pagina para exibição
   ngOnInit(): void {
     this.loadPage();
   }
-
+//solicita os dados da nova pagina para exibição
   ngAfterViewInit() {
     this.paginator.page
       .pipe(
@@ -47,7 +47,7 @@ export class UserListComponent implements AfterViewInit, OnInit {
       )
       .subscribe();
   }
-
+//faz a solicitação de pagina para exibição
   loadPage(page: number = 1) {
     this.userService.list(page).subscribe(response => {
       this.response = response;

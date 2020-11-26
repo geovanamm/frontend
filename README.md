@@ -1,6 +1,8 @@
-# SelecaoLabtimeFrontend
+# Seleção Desenvolvedor Tecnológico 2020 - LabTIME
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+Aplicação para consumir o backend fornecido  e exibir em tela. 
+
+Esse projeto foi desenvolvido usando [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
 ## Development server
 
